@@ -1,0 +1,7 @@
+<div>
+  <a id="app-name" mat-button routerLink="/home">{{appName}}</a>
+  <a *ngIf="isLoggedOut()" mat-button routerLink="/login">Login</a>
+  <a *ngIf="isLoggedOut()" mat-button routerLink="/register">Register</a>
+  <a *ngIf="isAdmin()" mat-button routerLink="/admin">Admin</a>
+  <a *ngIf="isLoggedIn()" mat-button (click)="logout()">Log out</a>
+</div>

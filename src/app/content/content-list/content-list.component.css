@@ -1,0 +1,16 @@
+.mat-column-description {
+  width: 30%;
+}
+
+.add-button {
+  background-color: green;
+}
+
+.thumbnail-button {
+  background-color: purple;
+  color: white;
+}
+
+.mat-elevation-z8 {
+  width: 100%;
+}

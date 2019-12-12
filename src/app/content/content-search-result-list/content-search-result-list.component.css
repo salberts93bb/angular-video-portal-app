@@ -1,0 +1,24 @@
+.mat-form-field {
+  margin-left: 10px;
+}
+
+.search-bar-button {
+  margin: 5px;
+}
+
+.search-results{
+  overflow: auto;
+  max-height: 95%;
+}
+
+.search-bar{
+  position: absolute;
+  z-index: 1;
+  opacity: 1;
+  background-color: rgb(48,48,48);
+  width: 95%;
+}
+
+.search-results-list{
+  margin-top: 75px;
+}

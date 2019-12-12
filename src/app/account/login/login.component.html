@@ -1,0 +1,31 @@
+<form (ngSubmit)="login()">
+  <h2>
+    Login
+  </h2>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>
+        Enter your username
+      </mat-label>
+      <input matInput placeholder="Username" name="user-name" [(ngModel)]="loginModel.userName" />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>
+        Enter your password
+      </mat-label>
+      <input matInput placeholder="Password" name="password" [(ngModel)]="loginModel.password" [type]="hidePassword ? 'password' : 'text'" />
+      <button type="button" mat-icon-button matSuffix (click)="toggleHide()">
+        <mat-icon>
+          {{hidePassword ? 'visibility' : 'visibility_off'}}
+        </mat-icon>
+      </button>
+    </mat-form-field>
+  </p>
+  <p>
+    <button type="submit" mat-raised-button color="primary">
+      Login
+    </button>
+  </p>
+</form>

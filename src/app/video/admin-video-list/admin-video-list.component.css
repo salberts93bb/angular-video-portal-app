@@ -1,0 +1,32 @@
+.mat-table, .mat-paginator, .content-list {
+    width: 300px;
+}
+
+.mat-button {
+    padding: 0;
+}
+
+.mat-cell-name:not(.selected) {
+  cursor: pointer;
+}
+
+.mat-cell-name:not(.selected):hover {
+  background: #C62828;
+}
+
+.selected {
+    background: darkred;
+}
+
+.mat-table {
+    height: 100%;
+    top: 0;
+}
+
+.add-button {
+  background-color: green;
+}
+
+.video-list, .video-editor {
+  display: inline-block;
+}

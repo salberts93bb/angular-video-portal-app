@@ -1,0 +1,22 @@
+<mat-card class="card">
+  <button mat-button class="mat-card-button" (click)="open()">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{content.name}}</mat-card-title>
+      <mat-card-subtitle>{{content.category}} - {{content.type}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="imageSource" alt="Image not found">
+    <mat-card-content>
+      <h4>
+        {{content.name}}
+      </h4>
+      <p>
+        {{content.description}}
+      </p>
+    </mat-card-content>
+  </button>
+  <mat-card-actions>
+    <button mat-button (click)="toggleLike()">&hearts; {{numberOfLikes}}</button>
+    <button mat-button (click)="toggleDislike()">&#x2639; {{numberOfDislikes}}</button>
+  </mat-card-actions>
+</mat-card>

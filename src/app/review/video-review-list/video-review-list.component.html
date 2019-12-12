@@ -1,0 +1,13 @@
+<app-review-editor [id]="selectedId" [videoId]="videoId" [contentType]="contentType" (editFinished)="finishEdit()">
+
+</app-review-editor>
+<h3>
+    Comments
+</h3>
+<app-review *ngFor="let review of reviews" [review]="review" (editClicked)="edit($event)">
+
+</app-review>
+
+<div *ngIf="noComments">
+    Be the first to leave a comment for this video!
+</div>

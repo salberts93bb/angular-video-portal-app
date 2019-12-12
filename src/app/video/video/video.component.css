@@ -1,0 +1,18 @@
+.section {
+    display: inline-block;
+    margin: 5px;
+}
+
+.video-section {
+    max-width: 80%
+}
+
+.info-section {
+    max-width: 20%;
+    position: fixed;
+}
+
+.container,
+.comment-section {
+    margin-bottom: 5%;
+}

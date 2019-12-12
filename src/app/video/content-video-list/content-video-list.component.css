@@ -1,0 +1,23 @@
+.mat-table, .mat-paginator, .content-list {
+    width: 300px;
+}
+
+.mat-button {
+    padding: 0;
+}
+
+.mat-cell:not(.selected) {
+  cursor: pointer;
+}
+
+.mat-cell:not(.selected):hover {
+  background: #C62828;
+}
+
+.selected {
+    background: darkred;
+}
+
+.content-list, .video-list-editor {
+    display: inline-block;
+}

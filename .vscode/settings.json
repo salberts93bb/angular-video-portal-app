@@ -1,0 +1,8 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/ff0ffbcf-17c0-4867-af46-9266568b8eba/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/VideoPortalNulTien",
+    "appService.deploySubpath": "",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
+}

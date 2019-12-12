@@ -1,0 +1,73 @@
+<app-content-editor *ngIf="isEditorOpen" [contentId]="selectedContentIdEditor" [preselectedCategory]="preselectedCategoryEditor" (editorClosed)="closeEditor()"></app-content-editor>
+<app-content-thumbnail-editor *ngIf="isThumbnailEditorOpen" [contentId]="selectedContentIdThumbnail" (editorClosed)="closeThumbnailEditor()"></app-content-thumbnail-editor>
+<div>
+    <h2>
+        Content
+    </h2>
+    <table class="mat-elevation-z8" mat-table [dataSource]="contents" matSort>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let content"> {{content.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+            <td class="description" mat-cell *matCellDef="let content"> {{content.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+            <td mat-cell *matCellDef="let content"> {{content.type}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+            <td mat-cell *matCellDef="let content"> {{content.category}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="numberOfLikes">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Number of likes </th>
+            <td mat-cell *matCellDef="let content"> {{content.numberOfLikes}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="numberOfDislikes">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Number of dislikes </th>
+            <td mat-cell *matCellDef="let content"> {{content.numberOfDislikes}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>
+            </th>
+            <td mat-cell *matCellDef="let content">
+                <button mat-raised-button color="primary" (click)="openEditor(content)">
+          Edit
+        </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="thumbnail">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let content">
+                <button class="thumbnail-button" mat-raised-button color="accent" (click)="openThumbnailEditor(content)">
+          Edit Thumbnail
+        </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="adddelete">
+            <th mat-header-cell *matHeaderCellDef>
+                <button mat-raised-button class="add-button" (click)="openEditor()">
+          Add
+        </button>
+            </th>
+            <td mat-cell *matCellDef="let content">
+                <button mat-raised-button color="warn" (click)="delete(content.id)">
+          Delete
+        </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+</div>

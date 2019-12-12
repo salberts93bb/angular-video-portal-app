@@ -1,0 +1,45 @@
+<div class="form-container mat-elevetion-z8" *ngIf="videoForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="videoForm">
+        <h2>
+            {{header}}
+        </h2>
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>
+                    Video name
+                </mat-label>
+                <input matInput placeholder="Enter a name..." formControlName="name" required />
+                <mat-error>
+                    Please enter a name
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>
+                    Description
+                </mat-label>
+                <textarea matInput cdkTextareaAutosize placeholder="Enter a description..."
+                    formControlName="description"></textarea>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field>
+                <ngx-mat-file-input placeholder="Select file..." formControlName="file"></ngx-mat-file-input>
+                <mat-icon matSuffix>folder</mat-icon>
+                <mat-error>
+                    Please choose a thumbnail
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <button type="submit" mat-raised-button color="primary" *ngIf="videoForm?.valid">
+                Submit
+            </button>
+            <button type="button" mat-raised-button color="warn" (click)="closeEditor()">
+                Cancel
+            </button>
+        </p>
+    </form>
+</div>

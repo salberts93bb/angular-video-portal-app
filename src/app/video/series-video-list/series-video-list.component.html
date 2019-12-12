@@ -1,0 +1,15 @@
+<div *ngIf="series">
+  <h3>
+    {{series.name}}
+  </h3>
+
+  <mat-action-list>
+    <button mat-list-item *ngFor="let video of videos" (click)="open(video)">
+      Episode {{getEpisodeNumber(video)}}: {{video.name}}
+    </button>
+  </mat-action-list>
+
+</div>
+<div *ngIf="noVideos">
+  The series could not be loaded. Please try again later.
+</div>

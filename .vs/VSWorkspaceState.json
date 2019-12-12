@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\content",
+    "\\src\\app\\content\\content-search-result",
+    "\\src\\app\\content\\content-search-result-list",
+    "\\src\\app\\shared",
+    "\\src\\app\\shared\\services",
+    "\\src\\app\\video",
+    "\\src\\app\\video\\series-video-list",
+    "\\src\\app\\video\\video"
+  ],
+  "SelectedNode": "\\src\\app\\content\\content-search-result-list\\content-search-result-list.component.ts",
+  "PreviewInSolutionExplorer": false
+}

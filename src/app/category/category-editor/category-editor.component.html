@@ -1,0 +1,31 @@
+<div class="mat-elevation-z8">
+    <form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
+        <h2>
+            {{pageHeader}}
+        </h2>
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label>
+                    Category name
+                </mat-label>
+                <input matInput placeholder="Name" required formControlName="name" />
+                <mat-error>
+                    <span *ngIf="name.errors?.required">
+            {{errorMessageEmptyName}}
+          </span>
+                    <span *ngIf="name.errors?.duplicate">
+            {{errorMessageNonUnique}}
+          </span>
+                </mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <button type="submit" mat-raised-button color="primary" *ngIf="name.valid">
+        Submit
+      </button>
+            <button type="button" mat-raised-button color="warn" (click)="closeEditor()">
+        Cancel
+      </button>
+        </p>
+    </form>
+</div>

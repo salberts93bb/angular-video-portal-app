@@ -1,0 +1,9 @@
+
+<mat-select #select [compareWith]="compareCategories"
+            [(ngModel)]="selectedCategory"
+            (blur)="onBlur()"
+            (selectionChange)="onChange($event.value)">
+  <mat-option *ngFor="let category of categories" [value]="category">
+    {{category.name}}
+  </mat-option>
+</mat-select>

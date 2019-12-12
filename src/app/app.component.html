@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <app-toolbar [appName]="title"></app-toolbar>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="side" opened>
+    <app-main-menu></app-main-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<notifier-container></notifier-container>

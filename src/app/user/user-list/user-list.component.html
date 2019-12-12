@@ -1,0 +1,72 @@
+<app-user-editor *ngIf="selectedUserId" [userId]="selectedUserId" (editorClosed)="closeEditor()"></app-user-editor>
+<div>
+    <h2>
+        Users
+    </h2>
+    <form [formGroup]="searchForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Search
+            </mat-label>
+            <input matInput type="search" placeholder="Username or e-mail..." formControlName="searchTerm">
+        </mat-form-field>
+        <button class="search-bar-button" type="submit" mat-raised-button color="primary" (click)="search()">
+            Search
+        </button>
+        <button class="search-bar-button" type="button" mat-raised-button color="warn" (click)="reset()">
+            Reset
+        </button>
+    </form>
+    <table class="mat-elevation-z8" mat-table [dataSource]="users" matSort>
+        <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+            <td mat-cell *matCellDef="let user"> {{user.userName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> First name </th>
+            <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Last name </th>
+            <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+            <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dateOfBirth">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of birth </th>
+            <td mat-cell *matCellDef="let user"> {{dateOfBirthString(user)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>
+            </th>
+            <td mat-cell *matCellDef="let user">
+                <button mat-raised-button color="primary" (click)="openEditor(user)">
+                    Edit
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="adddelete">
+            <th mat-header-cell *matHeaderCellDef>
+                <button mat-raised-button class="add-button" (click)="openEditor()">
+                    Add
+                </button>
+            </th>
+            <td mat-cell *matCellDef="let user">
+                <button mat-raised-button color="warn" (click)="delete(user.id)">
+                    Delete
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+</div>

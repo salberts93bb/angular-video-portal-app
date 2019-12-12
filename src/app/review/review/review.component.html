@@ -1,0 +1,19 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title>{{review.userName}}
+        </mat-card-title>
+        <mat-card-subtitle>{{postedString}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <div class="mat-card-body">
+        <mat-card-content>
+            <p>
+                {{review.comment}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions *ngIf="mayEdit">
+            <button mat-raised-button color="primary" (click)="edit()">Edit</button>
+            <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+        </mat-card-actions>
+    </div>
+</mat-card>

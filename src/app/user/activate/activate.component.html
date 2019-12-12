@@ -1,0 +1,11 @@
+<div *ngIf="!isLoading">
+    <p *ngIf="isCompleted">
+        Account activated succesfully!
+    </p>
+    <p *ngIf="isFailed">
+        An error occurred. Please contact support or try again later.
+    </p>
+</div>
+<div *ngIf="isLoading">
+    Processing...
+</div>

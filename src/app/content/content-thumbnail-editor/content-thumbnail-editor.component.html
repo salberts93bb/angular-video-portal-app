@@ -1,0 +1,28 @@
+<h3>Edit thumbnail {{contentName}}</h3>
+<div *ngIf="image">
+  <div class="section">
+    <img mat-card-image [src]="'data:image/jpg;base64,'+ image" alt="Image not found">
+  </div>
+  <div class="section">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field>
+          <ngx-mat-file-input placeholder="Select file..." formControlName="fileInput" required></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+          <mat-error>
+            Please choose a thumbnail
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <button type="submit" mat-raised-button color="primary" *ngIf="form.valid">
+          Submit
+        </button>
+        <button type="button" mat-raised-button color="warn" (click)="closeEditor()">
+          Cancel
+        </button>
+      </p>
+    </form>
+
+  </div>
+</div>

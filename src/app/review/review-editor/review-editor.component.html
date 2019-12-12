@@ -1,0 +1,24 @@
+<div class="form-container mat-elevetion-z8" *ngIf="form">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <h3>
+            Leave a comment
+        </h3>
+
+        <p>
+            <mat-form-field>
+                <mat-label>
+                    Comment
+                </mat-label>
+                <textarea matInput cdkTextareaAutosize placeholder="Enter a comment..." formControlName="comment"></textarea>
+            </mat-form-field>
+        </p>
+        <p>
+            <button type="submit" mat-raised-button color="primary">
+                Submit
+            </button>
+            <button *ngIf="isEditOn" type="button" mat-raised-button color="warn" (click)="finishEdit()">
+                Cancel
+            </button>
+        </p>
+    </form>
+</div>

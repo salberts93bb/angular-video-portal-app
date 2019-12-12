@@ -1,0 +1,67 @@
+<div class="mat-elevetion-z8">
+  <form (ngSubmit)="onSubmit()" [formGroup]="contentForm">
+    <h2>
+      {{pageHeader}}
+    </h2>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>
+          Content name
+        </mat-label>
+        <input matInput placeholder="Enter a name..." formControlName="name" required />
+        <mat-error>
+          {{feedbackName}}
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field *ngIf="isNewContent">
+        <mat-label>
+          Type
+        </mat-label>
+        <mat-select formControlName="type" required>
+          <mat-option *ngFor="let type of contentTypes" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          Please choose a type
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          Category
+        </mat-label>
+        <app-category-selector #select (categorySelectionChanged)="changeCategory($event)" formControlName="category" required="true"
+                               [selectedCategory]="preselectedCategory"></app-category-selector>
+        <mat-error>Please choose a category</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>
+          Description
+        </mat-label>
+        <textarea matInput cdkTextareaAutosize placeholder="Enter a description..." formControlName="description"></textarea>
+      </mat-form-field>
+    </p>
+
+    <p *ngIf="isNewContent">
+      <mat-form-field>
+        <ngx-mat-file-input placeholder="Select file..." formControlName="image" required></ngx-mat-file-input>
+        <mat-icon matSuffix>folder</mat-icon>
+        <mat-error>
+          Please choose a thumbnail
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <button type="submit" mat-raised-button color="primary" *ngIf="contentForm?.valid">
+        Submit
+      </button>
+      <button type="button" mat-raised-button color="warn" (click)="closeEditor()">
+        Cancel
+      </button>
+    </p>
+  </form>
+</div>
